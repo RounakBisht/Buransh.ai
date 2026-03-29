@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buransh.ai — Support Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:    #C0392B;
+  --crimson2:   #E74C3C;
+  --crimson-dim:#8B2500;
+  --forest:     #1F1A0F;
+  --forest2:    #2E2510;
+  --snow:       #F2E8D5;
+  --mist:       #E0C898;
+  --bark:       #8C7A58;
+  --text:       #1F1A0F;
+  --text2:      #5C4A2C;
+  --text3:      #8C7A58;
+  --gold:       #C9A84C;
+  --card:       #FEF6E8;
+  --border-light: #EDD8A8;
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'DM Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--snow);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(245,242,238,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(139,115,85,0.15);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  width: 38px;
+  height: 38px;
+}
+
+.nav-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: -0.3px;
+}
+
+.nav-name span {
+  color: var(--crimson);
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text2);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--crimson); }
+
+.nav-cta {
+  background: var(--forest);
+  color: var(--snow) !important;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: 500 !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--crimson) !important; color: var(--snow) !important; }
+
+/* ── HERO ────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 100px 48px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(192,57,43,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-left {
+  max-width: 580px;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--crimson);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--crimson);
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--crimson);
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--crimson);
+  color: white;
+  padding: 13px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--crimson-dim);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  color: var(--text2);
+  padding: 13px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  border: 1px solid var(--mist);
+  transition: all 0.2s;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--bark);
+  color: var(--text);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid var(--mist);
+}
+
+.stat-item {}
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 31px;
+  font-weight: 700;
+  color: var(--crimson);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 0.5px;
+}
+
+/* Hero right — logo illustration */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-visual {
+  position: relative;
+  width: 420px;
+  height: 420px;
+}
+
+.hero-card {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--mist);
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(31,26,15,0.10);
+  position: absolute;
+}
+
+.hero-card-main {
+  width: 340px;
+  top: 40px; left: 40px;
+}
+
+.hero-card-floating {
+  width: 220px;
+  bottom: 20px; right: 0px;
+  background: var(--forest);
+  border-color: var(--forest);
+}
+
+.card-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+
+.card-label-light {
+  color: rgba(245,242,238,0.5);
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.ticket-row:last-child { border-bottom: none; }
+
+.score-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 11px;
+  flex-shrink: 0;
+  font-family: var(--sans);
+}
+
+.score-critical { background: rgba(192,57,43,0.12); color: var(--crimson); }
+.score-high     { background: rgba(201,168,76,0.15); color: var(--gold); }
+.score-low      { background: rgba(26,47,30,0.08); color: var(--forest); }
+
+.ticket-info { flex: 1; }
+.ticket-name { font-size: 12px; font-weight: 500; color: var(--text); }
+.ticket-desc { font-size: 11px; color: var(--text3); }
+
+.velocity-up   { font-size: 10px; color: var(--crimson); font-weight: 500; }
+.velocity-down { font-size: 10px; color: #27AE60; font-weight: 500; }
+
+.float-score {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.float-label {
+  font-size: 11px;
+  color: rgba(245,242,238,0.6);
+}
+
+.float-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.float-fill {
+  height: 100%;
+  background: var(--crimson);
+  border-radius: 2px;
+  width: 87%;
+}
+
+/* ── SECTION SHARED ──────────────────────────────────── */
+section {
+  padding: 100px 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 14px;
+}
+
+.section-h2 {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--forest);
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* ── PROBLEM ─────────────────────────────────────────── */
+.problem {
+  background: var(--forest);
+  color: var(--snow);
+}
+
+.problem .section-tag { color: var(--gold); }
+.problem .section-h2 { color: var(--snow); }
+.problem .section-sub { color: rgba(245,242,238,0.65); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.problem-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.problem-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+
+.problem-card:hover { border-color: rgba(192,57,43,0.4); }
+
+.problem-icon {
+  width: 36px; height: 36px;
+  background: rgba(192,57,43,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.problem-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+
+.problem-card-desc {
+  font-size: 13px;
+  color: rgba(245,242,238,0.5);
+  line-height: 1.6;
+}
+
+.big-stat {
+  text-align: center;
+}
+
+.big-num {
+  font-family: var(--serif);
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--crimson);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.big-desc {
+  font-size: 16px;
+  color: rgba(245,242,238,0.6);
+  max-width: 260px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── HOW IT WORKS ────────────────────────────────────── */
+.how {
+  background: var(--snow);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.step-card {
+  background: var(--card);
+  border: 1px solid var(--mist);
+  border-radius: 14px;
+  padding: 28px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.step-card:hover {
+  border-color: rgba(192,57,43,0.3);
+  box-shadow: 0 8px 32px rgba(192,57,43,0.08);
+  transform: translateY(-2px);
+}
+
+.step-num {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(192,57,43,0.35);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.step-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+
+.step-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--crimson);
+  background: rgba(192,57,43,0.06);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── ABOUT ───────────────────────────────────────────── */
+.about {
+  background: var(--card);
+  border-top: 1px solid var(--mist);
+  border-bottom: 1px solid var(--mist);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-story {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.85;
+  margin-top: 20px;
+}
+
+.about-story strong {
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.about-quote {
+  margin-top: 28px;
+  padding: 20px 24px;
+  border-left: 3px solid var(--crimson);
+  background: rgba(192,57,43,0.03);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--forest);
+  line-height: 1.6;
+}
+
+.founders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.founder-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px;
+  background: var(--snow);
+  border-radius: 14px;
+  border: 1px solid var(--mist);
+}
+
+.founder-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--snow);
+  flex-shrink: 0;
+}
+
+.founder-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 3px;
+}
+
+.founder-role {
+  font-size: 12px;
+  color: var(--crimson);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.founder-bio {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.uttarakhand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--bark);
+  background: rgba(139,115,85,0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── TRY IT ──────────────────────────────────────────── */
+.try-it {
+  background: linear-gradient(135deg, var(--forest) 0%, #0F1F13 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.try-it::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.try-it .section-tag { color: var(--gold); }
+.try-it .section-h2 { color: var(--snow); max-width: 100%; text-align: center; margin: 0 auto 16px; }
+.try-it .section-sub { color: rgba(245,242,238,0.6); max-width: 480px; margin: 0 auto 40px; text-align: center; }
+
+.demo-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.demo-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(245,242,238,0.6);
+}
+
+.demo-feature-dot {
+  width: 6px; height: 6px;
+  background: var(--crimson);
+  border-radius: 50%;
+}
+
+.try-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--crimson);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.try-btn:hover {
+  background: var(--crimson2);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(192,57,43,0.4);
+}
+
+.try-arrow {
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.try-btn:hover .try-arrow { transform: translateX(4px); }
+
+/* ── FEEDBACK ────────────────────────────────────────── */
+.feedback {
+  background: var(--snow);
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-input, .form-select, .form-textarea {
+  background: var(--card);
+  border: 1px solid var(--mist);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--crimson);
+}
+
+.form-textarea { resize: vertical; min-height: 100px; }
+
+.form-select { appearance: none; cursor: pointer; }
+
+.form-submit {
+  background: var(--forest);
+  color: var(--snow);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-start;
+}
+
+.form-submit:hover { background: var(--crimson); transform: translateY(-1px); }
+
+.feedback-why {
+  padding: 32px;
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--mist);
+}
+
+.feedback-why-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--forest);
+  margin-bottom: 16px;
+}
+
+.feedback-why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedback-why-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.feedback-why-list li::before {
+  content: '▸';
+  color: var(--crimson);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── THANK YOU ───────────────────────────────────────── */
+.thankyou {
+  background: var(--forest);
+  text-align: center;
+  padding: 80px 48px;
+}
+
+.thankyou-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.buransh-flower-large {
+  margin: 0 auto 28px;
+  width: 64px; height: 64px;
+}
+
+.thankyou h2 {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--snow);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.thankyou p {
+  font-size: 16px;
+  color: rgba(245,242,238,0.6);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.thankyou-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.3);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: rgba(245,242,238,0.8);
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+  background: #0F1A10;
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: rgba(245,242,238,0.5);
+}
+
+.footer-brand span { color: var(--crimson); }
+
+.footer-note {
+  font-size: 12px;
+  color: rgba(245,242,238,0.25);
+}
+
+/* ── MOBILE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+    height: 58px;
+  }
+  .nav-links { display: none; }
+  .nav-cta {
+    display: inline-block;
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+  .nav-links li:last-child { display: block; }
+
+  section { padding: 64px 20px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 90px 20px 48px;
+    min-height: auto;
+  }
+  .hero::before { display: none; }
+  .hero h1 { font-size: 36px; }
+  .hero-sub { font-size: 15px; }
+  .hero-right { display: none; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .stat-num { font-size: 22px; }
+
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .big-num { font-size: 64px; }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .section-h2 { font-size: 28px; }
+
+  .feedback-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .demo-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .try-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .thankyou { padding: 60px 20px; }
+  .thankyou h2 { font-size: 26px; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BURANSH SVG LOGO ────────────────────────────────── */
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <!-- Buransh flower logo — SVG inline -->
+    <svg class="nav-logo" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Petals of rhododendron flower -->
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#C0392B" opacity="0.9" transform="rotate(0 19 19)"/>
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#C0392B" opacity="0.8" transform="rotate(60 19 19)"/>
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#C0392B" opacity="0.7" transform="rotate(120 19 19)"/>
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#E74C3C" opacity="0.9" transform="rotate(180 19 19)"/>
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#E74C3C" opacity="0.8" transform="rotate(240 19 19)"/>
+      <ellipse cx="19" cy="10" rx="4" ry="8" fill="#E74C3C" opacity="0.7" transform="rotate(300 19 19)"/>
+      <!-- Center -->
+      <circle cx="19" cy="19" r="5" fill="#1A2F1E"/>
+      <circle cx="19" cy="19" r="2.5" fill="#C9A84C"/>
+    </svg>
+    <div class="nav-name">Buransh<span>.ai</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#about">About us</a></li>
+    <li><a href="/dashboard.html" class="nav-cta">Try it free →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Built at AI Product Buildathon 2026
+    </div>
+    <h1>Support intelligence<br>that <em>acts</em> before<br>you even look</h1>
+    <p class="hero-sub">
+      Buransh.ai is the AI middleware layer between your support inbox and your team —
+      scoring every ticket by urgency, sentiment, and customer trust before any human sees it.
+    </p>
+    <div class="hero-actions">
+      <a href="#try" class="btn-primary">See it live →</a>
+      <a href="#vision" class="btn-secondary">Learn the problem</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Scoring signals</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">&lt;3s</div>
+        <div class="stat-label">Per ticket analysis</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Workflow changes needed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-card hero-card-main">
+        <div class="card-label">Priority queue — live</div>
+        <div class="ticket-row">
+          <div class="score-badge score-critical">100</div>
+          <div class="ticket-info">
+            <div class="ticket-name">Duplicate charge on account</div>
+            <div class="ticket-desc">Enterprise · Billing · at risk</div>
+          </div>
+          <div class="velocity-up">↑ escalating</div>
+        </div>
+        <div class="ticket-row">
+          <div class="score-badge score-critical">94</div>
+          <div class="ticket-info">
+            <div class="ticket-name">API latency degraded 40%</div>
+            <div class="ticket-desc">Enterprise · Technical · champion</div>
+          </div>
+          <div class="velocity-up">↑ escalating</div>
+        </div>
+        <div class="ticket-row">
+          <div class="score-badge score-high">61</div>
+          <div class="ticket-info">
+            <div class="ticket-name">Cannot log in — new user</div>
+            <div class="ticket-desc">Free tier · Account · new</div>
+          </div>
+          <div class="velocity-up">↑ escalating</div>
+        </div>
+        <div class="ticket-row">
+          <div class="score-badge score-low">18</div>
+          <div class="ticket-info">
+            <div class="ticket-name">Dark mode feature request</div>
+            <div class="ticket-desc">Standard · Feature · loyal</div>
+          </div>
+          <div class="velocity-down">→ stable</div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-card-floating">
+        <div class="card-label card-label-light">Score breakdown</div>
+        <div class="float-score">100</div>
+        <div class="float-label">Critical · Escalate now</div>
+
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:9px;color:rgba(245,232,213,0.45);letter-spacing:0.5px;text-transform:uppercase;">Base urgency</span>
+              <span style="font-size:9px;color:rgba(245,232,213,0.7);font-family:monospace;">90/100</span>
+            </div>
+            <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+              <div style="width:90%;height:100%;background:#7c6af7;border-radius:2px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:9px;color:rgba(245,232,213,0.45);letter-spacing:0.5px;text-transform:uppercase;">ARR multiplier</span>
+              <span style="font-size:9px;color:rgba(245,232,213,0.7);font-family:monospace;">1.4×</span>
+            </div>
+            <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+              <div style="width:100%;height:100%;background:#C9A84C;border-radius:2px;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:9px;color:rgba(245,232,213,0.45);letter-spacing:0.5px;text-transform:uppercase;">Trust inverse</span>
+              <span style="font-size:9px;color:rgba(245,232,213,0.7);font-family:monospace;">1.3×</span>
+            </div>
+            <div style="height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+              <div style="width:100%;height:100%;background:#C0392B;border-radius:2px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / PROBLEM -->
+<section class="problem" id="vision">
+  <div class="reveal">
+    <div class="section-tag">The problem we're solving</div>
+    <h2 class="section-h2">400 tickets. One flat queue.<br>No way to tell what matters.</h2>
+    <p class="section-sub">
+      Support teams don't fail because of volume. They fail because urgency is invisible on arrival.
+      A churning enterprise customer looks identical to a password reset request.
+    </p>
+  </div>
+
+  <div class="problem-grid reveal">
+    <div class="problem-cards">
+      <div class="problem-card">
+        <div class="problem-icon">⏱</div>
+        <div>
+          <div class="problem-card-title">2.4 hours wasted daily</div>
+          <div class="problem-card-desc">Average agent spends nearly half their shift sorting tickets before resolving any.</div>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚠</div>
+        <div>
+          <div class="problem-card-title">Churn window is 72 hours</div>
+          <div class="problem-card-desc">73% of B2B SaaS churn decisions are made within 72 hours of an unresolved critical issue.</div>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔁</div>
+        <div>
+          <div class="problem-card-title">Rule-based tools are brittle</div>
+          <div class="problem-card-desc">Zendesk and Freshdesk tag by keyword. They can't understand "this is really disappointing" as a churn signal.</div>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🌱</div>
+        <div>
+          <div class="problem-card-title">New customers are invisible</div>
+          <div class="problem-card-desc">A brand new user's first ticket is their entire relationship with you. Most tools treat them like everyone else.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-stat">
+      <div class="big-num">$14.5B</div>
+      <div class="big-desc">Global helpdesk software market waiting for an AI-native triage layer</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto;">
+    <div class="section-tag">How Buransh.ai works</div>
+    <h2 class="section-h2" style="max-width:100%; text-align:center; margin:0 auto 16px;">Three signals. One score.<br>Zero new workflows.</h2>
+    <p class="section-sub" style="max-width:100%; text-align:center; margin:0 auto;">
+      Every incoming ticket passes through Buransh.ai before any human sees it.
+      The result is written back into your existing platform as enriched context.
+    </p>
+  </div>
+
+  <div class="steps reveal">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-title">Base signal — AI reads the ticket</div>
+      <div class="step-desc">
+        Urgency (0-100) and sentiment (0-100) are scored independently.
+        A calm API outage and an emotional password reset are treated completely differently.
+      </div>
+      <span class="step-tag">Claude / Llama AI</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-title">ARR multiplier — revenue context</div>
+      <div class="step-desc">
+        Account tier and LTV nudge the score upward for higher-value customers.
+        It's a multiplier, not an override — it never buries a genuine emergency.
+      </div>
+      <span class="step-tag">1.0× → 1.4× range</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-title">Trust buffer — CSAT trajectory</div>
+      <div class="step-desc">
+        Recent CSAT scores are weighted more than older ones. A customer going 5→3→1
+        is escalating even if today's message sounds calm. New customers always get maximum priority.
+      </div>
+      <span class="step-tag">Recency-weighted decay</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid reveal">
+    <div>
+      <div class="section-tag">Who we are</div>
+      <h2 class="section-h2">Two people from the hills.<br>Both have lived this problem.</h2>
+      <p class="about-story">
+        We both grew up in <strong>Uttarakhand</strong> — where the Buransh rhododendron blooms every spring
+        in the high-altitude forests. It's a flower known for its resilience: it thrives in difficult terrain,
+        survives harsh winters, and blooms reliably when others can't.
+      </p>
+      <p class="about-story">
+        We named this product after it because that's what we're building — something that handles
+        the difficult, high-pressure environment of enterprise support without breaking.
+      </p>
+      <p class="about-story">
+        We've both watched a frustrated enterprise customer sit in a queue while the team cleared password resets.
+        We knew the cost. We just couldn't fix it then.
+      </p>
+      <div class="about-quote">
+        "The problem was never the volume. It was that urgency was invisible on arrival."
+      </div>
+    </div>
+
+    <div class="founders">
+      <div class="founder-card">
+        <div class="founder-avatar">RB</div>
+        <div>
+          <div class="founder-name">
+            <a href="https://www.linkedin.com/in/rounak-bisht-/" target="_blank"
+               style="color:var(--forest);text-decoration:none;border-bottom:1px solid rgba(192,57,43,0.3);transition:border-color 0.2s;"
+               onmouseover="this.style.borderColor='var(--crimson)'"
+               onmouseout="this.style.borderColor='rgba(192,57,43,0.3)'">
+              Rounak Bisht ↗
+            </a>
+          </div>
+          <div class="founder-role">CRM &amp; Growth · System Architecture · AI Workflows</div>
+          <div class="founder-bio">
+            Customer care ops and CRM background with experience in performance marketing and CRM automations.
+            Aspiring PM building at the intersection of AI and customer experience.
+            Conceived the three-signal scoring model that powers Buransh.ai.
+          </div>
+          <div class="uttarakhand-tag">🏔 From Uttarakhand</div>
+        </div>
+      </div>
+
+      <div class="founder-card">
+        <div class="founder-avatar">KM</div>
+        <div>
+          <div class="founder-name">
+            <a href="https://www.linkedin.com/in/kartik-manral-b08383249" target="_blank"
+               style="color:var(--forest);text-decoration:none;border-bottom:1px solid rgba(192,57,43,0.3);transition:border-color 0.2s;"
+               onmouseover="this.style.borderColor='var(--crimson)'"
+               onmouseout="this.style.borderColor='rgba(192,57,43,0.3)'">
+              Kartik Manral ↗
+            </a>
+          </div>
+          <div class="founder-role">Fullstack Development · UI/UX · Product Design</div>
+          <div class="founder-bio">
+            Software development background, passionate about building products that support
+            human interaction with data.
+            Designed and built the Buransh.ai dashboard and brand identity.
+          </div>
+          <div class="uttarakhand-tag">🏔 From Uttarakhand</div>
+        </div>
+      </div>
+
+      <div style="padding:18px 22px; background:rgba(192,57,43,0.04); border:1px solid rgba(192,57,43,0.1); border-radius:12px;">
+        <div style="font-size:13px; color:var(--text2); line-height:1.7;">
+          Built in 48 hours at the <strong style="color:var(--forest)">AI Product Buildathon</strong>
+          organized by <strong style="color:var(--crimson)">The Product Space</strong>.
+          Both of us are aspiring PMs — this is our first shipped AI product.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRY IT -->
+<section class="try-it" id="try">
+  <div class="reveal">
+    <div class="section-tag">Live demo</div>
+    <h2 class="section-h2">See it work in real time</h2>
+    <p class="section-sub">
+      Open the dashboard, hit "Load demo", and watch 5 tickets get triaged in seconds.
+      No login. No setup. No explanation needed.
+    </p>
+
+    <div class="demo-features">
+      <div class="demo-feature"><div class="demo-feature-dot"></div>Live AI scoring</div>
+      <div class="demo-feature"><div class="demo-feature-dot"></div>Emotion velocity indicators</div>
+      <div class="demo-feature"><div class="demo-feature-dot"></div>Draft responses generated</div>
+      <div class="demo-feature"><div class="demo-feature-dot"></div>Signal breakdown panel</div>
+    </div>
+
+    <a href="/dashboard.html" target="_blank" class="try-btn">
+      Open Buransh.ai dashboard
+      <span class="try-arrow">→</span>
+    </a>
+
+    <div style="margin-top:28px;max-width:460px;margin-left:auto;margin-right:auto;">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:18px 20px;">
+        <div style="font-size:12px;font-weight:500;color:var(--gold);margin-bottom:6px;letter-spacing:0.5px;">USE YOUR OWN GROQ API KEY</div>
+        <div style="font-size:13px;color:rgba(245,242,238,0.55);line-height:1.6;margin-bottom:14px;">
+          The demo runs on our shared key with limited capacity. For faster, uninterrupted analysis — paste your own free key from
+          <a href="https://console.groq.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);">console.groq.com</a>
+          (takes 2 minutes, no card needed).
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <input type="password" id="landing-groq-key" placeholder="gsk_xxxxxxxxxxxxxxxxxxxx"
+            style="width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:10px 14px;color:#F2E8D5;font-family:monospace;font-size:12px;outline:none;">
+          <button onclick="saveGroqKey()" style="width:100%;background:var(--crimson);color:white;border:none;border-radius:8px;padding:11px 18px;font-size:13px;font-weight:500;cursor:pointer;transition:background 0.2s;"
+            onmouseover="this.style.background='#E74C3C'" onmouseout="this.style.background='var(--crimson)'">
+            Save & open →
+          </button>
+        </div>
+        <div id="key-saved" style="display:none;font-size:12px;color:#3fb950;margin-top:8px;">Key saved. Opening dashboard...</div>
+
+        <div style="margin-top:14px;border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;">
+          <button onclick="toggleGuide()" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;width:100%;padding:0;" id="guide-toggle">
+            <span style="font-size:12px;color:var(--gold);font-weight:500;">Need a key? Here's how — takes literally 2 minutes</span>
+            <span id="guide-arrow" style="font-size:12px;color:var(--gold);margin-left:auto;transition:transform 0.2s;">▼</span>
+          </button>
+
+          <div id="guide-body" style="display:none;margin-top:12px;">
+            <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--crimson);color:white;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+                <div style="font-size:12px;color:rgba(245,232,213,0.7);line-height:1.5;">Go to <a href="https://console.groq.com" target="_blank" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);">console.groq.com</a> and sign in with your Google account</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--crimson);color:white;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+                <div style="font-size:12px;color:rgba(245,232,213,0.7);line-height:1.5;">Click <strong style="color:rgba(245,232,213,0.9);">API Keys</strong> in the left sidebar</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--crimson);color:white;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+                <div style="font-size:12px;color:rgba(245,232,213,0.7);line-height:1.5;">Click <strong style="color:rgba(245,232,213,0.9);">Create API Key</strong> — give it any name</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start;">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--crimson);color:white;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+                <div style="font-size:12px;color:rgba(245,232,213,0.7);line-height:1.5;">Copy the key starting with <strong style="color:rgba(245,232,213,0.9);">gsk_...</strong> and paste it above</div>
+              </div>
+            </div>
+
+            <a href="https://www.youtube.com/results?search_query=groq+api+key+setup+tutorial" target="_blank"
+               style="display:flex;align-items:center;gap:8px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.25);border-radius:8px;padding:10px 12px;text-decoration:none;transition:background 0.2s;"
+               onmouseover="this.style.background='rgba(255,0,0,0.2)'" onmouseout="this.style.background='rgba(255,0,0,0.12)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#ff4444"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8z"/><polygon fill="white" points="9.75,15.02 15.5,12 9.75,8.98"/></svg>
+              <div>
+                <div style="font-size:12px;color:rgba(245,232,213,0.9);font-weight:500;">Watch a quick tutorial on YouTube</div>
+                <div style="font-size:11px;color:rgba(245,232,213,0.45);">Search: "Groq API key setup" — under 3 minutes</div>
+              </div>
+            </a>
+
+            <div style="margin-top:10px;font-size:11px;color:rgba(245,232,213,0.35);text-align:center;">Free forever · No credit card · 14,400 requests/day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="feedback" id="feedback">
+  <div class="reveal">
+    <div class="section-tag">Talk to us</div>
+    <h2 class="section-h2">We're building this for people<br>who've lived the problem.</h2>
+  </div>
+
+  <div class="feedback-grid reveal">
+    <div id="feedbackFields">
+        <form class="feedback-form" id="feedbackForm">
+          <div class="form-group">
+            <label class="form-label">Your name</label>
+            <input class="form-input" type="text" name="name" placeholder="Priya Sharma" id="fb-name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" name="email" placeholder="priya@company.com" id="fb-email">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your role</label>
+            <select class="form-select" name="role" id="fb-role">
+              <option value="">Select your role</option>
+              <option>Support Team Lead</option>
+              <option>Support Agent</option>
+              <option>Product Manager</option>
+              <option>CX / Customer Success</option>
+              <option>Founder / CEO</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">What did you think of Buransh.ai?</label>
+            <textarea class="form-textarea" name="message" id="fb-msg" placeholder="Be honest — we're building this for real..."></textarea>
+          </div>
+          <button type="button" onclick="handleFeedback()" class="form-submit" id="fb-btn">Send feedback →</button>
+        </form>
+      </div>
+      <div id="fb-success" style="display:none; padding:20px; background:rgba(39,174,96,0.06); border:1px solid rgba(39,174,96,0.2); border-radius:12px; margin-top:8px;">
+        <div style="font-size:16px; font-weight:500; color:#27AE60; margin-bottom:6px;">Thanks for sharing your feedback!</div>
+        <div style="font-size:13px; color:var(--text2); line-height:1.6;">We genuinely read every response. If you left your email, we'll be in touch once our beta build goes live.</div>
+      </div>
+
+    <div class="feedback-why">
+      <div class="feedback-why-title">Why your feedback matters</div>
+      <ul class="feedback-why-list">
+        <li>We're two aspiring PMs who want to build this beyond the hackathon. Real feedback from support professionals shapes every decision we make.</li>
+        <li>If you've ever worked in support, you've felt this problem. We want to know if our solution matches how you'd actually think about it.</li>
+        <li>We're specifically interested in: what signals matter most to you, what would make you trust an AI triage tool, and what we've gotten wrong.</li>
+        <li>Every person who leaves feedback gets early access when we build the Freshdesk and Zendesk integrations.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- THANK YOU -->
+<section class="thankyou">
+  <div class="thankyou-inner reveal">
+    <svg class="buransh-flower-large" viewBox="0 0 64 64" fill="none">
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#C0392B" opacity="0.9" transform="rotate(0 32 32)"/>
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#C0392B" opacity="0.8" transform="rotate(60 32 32)"/>
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#C0392B" opacity="0.7" transform="rotate(120 32 32)"/>
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#E74C3C" opacity="0.9" transform="rotate(180 32 32)"/>
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#E74C3C" opacity="0.8" transform="rotate(240 32 32)"/>
+      <ellipse cx="32" cy="16" rx="6" ry="13" fill="#E74C3C" opacity="0.7" transform="rotate(300 32 32)"/>
+      <circle cx="32" cy="32" r="8" fill="#1A2F1E"/>
+      <circle cx="32" cy="32" r="4" fill="#C9A84C"/>
+    </svg>
+
+    <h2>Thank you, The Product Space</h2>
+    <p>
+      Building Buransh.ai in 48 hours wouldn't have been possible without the structure,
+      community, and genuine encouragement from The Product Space. This buildathon gave us
+      the constraint we needed to turn years of customer care frustration into something real.
+      <br><br>
+      For two aspiring PMs from Uttarakhand — this is just the beginning.
+    </p>
+    <div class="thankyou-badge">
+      Built with genuine intent · AI Product Buildathon 2026 · <a href="https://theproductspace.in/" target="_blank" style="color:rgba(245,232,213,0.8);text-decoration:none;border-bottom:1px solid rgba(245,232,213,0.2);transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(192,57,43,0.6)'" onmouseout="this.style.borderColor='rgba(245,232,213,0.2)'">@theproductspace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Buransh<span>.ai</span> — Support Intelligence Platform</div>
+  <div class="footer-note">Built in 48 hours · Uttarakhand → Everywhere</div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Feedback form, sent via Formspree
+async function handleFeedback() {
+  const name    = document.getElementById('fb-name').value.trim();
+  const email   = document.getElementById('fb-email').value.trim();
+  const role    = document.getElementById('fb-role').value;
+  const message = document.getElementById('fb-msg').value.trim();
+  if (!name || !message) { alert('Please fill in your name and feedback.'); return; }
+  const btn = document.getElementById('fb-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    await fetch('https://formspree.io/f/xvzvkano', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, role, message, _replyto: email })
+    });
+  } catch(e) { console.log('Formspree error', e); }
+  document.getElementById('feedbackFields').style.display = 'none';
+  document.getElementById('fb-success').style.display = 'block';
+}
+
+// Toggle API key guide
+function toggleGuide() {
+  const body  = document.getElementById('guide-body');
+  const arrow = document.getElementById('guide-arrow');
+  const open  = body.style.display === 'none';
+  body.style.display  = open ? 'block' : 'none';
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+// Save Groq key and open dashboard — key passed via sessionStorage
+function saveGroqKey() {
+  const key = document.getElementById('landing-groq-key').value.trim();
+  if (!key || !key.startsWith('gsk_')) {
+    alert('Please enter a valid Groq API key starting with gsk_');
+    return;
+  }
+  localStorage.setItem('GROQ_KEY', key);
+  document.getElementById('key-saved').style.display = 'block';
+  setTimeout(() => window.open('/dashboard.html', '_blank'), 800);
+}
+</script>
+</body>
+</html>
