@@ -6,7 +6,7 @@
  * ARCHITECTURE:
  *   Input: ticket + customer profile
  *     ↓
- *   Signal 1: Base signal    (Claude AI — urgency + sentiment)
+ *   Signal 1: Base signal    (Groq GPT-OSS 20B — urgency + sentiment)
  *   Signal 2: ARR multiplier (revenue tier nudge)
  *   Signal 3: Trust buffer   (CSAT decay → inverted)
  *     ↓
@@ -281,7 +281,7 @@ function computeChurnRisk(finalScore, velocity, rfmSegment, arrTier) {
  *
  * Key is passed at runtime — never stored in code.
  */
-const GROQ_MODEL = 'llama-3.1-8b-instant';
+const GROQ_MODEL = 'openai/gpt-oss-20b'; // the server enforces this model
 
 async function computeBaseSignal(ticket, customer, apiKey) {
   const customerContext = customer.isNewCustomer
@@ -370,7 +370,7 @@ function getUrgencyLabel(score) {
  * @param {object} ticket    - { message, subject, submittedAt }
  * @param {object} customer  - { arrTier, ltv, csatHistory, purchaseFrequency,
  *                               isNewCustomer, accountAgeDays, name }
- * @param {string} apiKey    - Anthropic API key
+ * @param {string} apiKey    - unused; the server-side /api/analyze route holds the Groq key
  * @returns {object} Complete scoring output for UI
  */
 async function scoreTicket(ticket, customer, apiKey) {

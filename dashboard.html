@@ -1305,6 +1305,7 @@ async function runBatchDemo() {
 
   demoRunning = true;
   const demoData = window.BuranshAI.DEMO_TICKETS;
+  let failed = 0, lastError = '';
 
   toast(`Loading ${demoData.length} demo tickets...`);
 
@@ -1336,6 +1337,8 @@ async function runBatchDemo() {
       checkIncidents();
     } catch (e) {
       console.error('Demo ticket error:', e);
+      failed++;
+      lastError = e.message;
     }
 
     // Small delay between tickets for visual effect
@@ -1343,7 +1346,9 @@ async function runBatchDemo() {
   }
 
   demoRunning = false;
-  toast('Demo loaded. Queue sorted by urgency score.');
+  if (failed === demoData.length) toast(`Couldn't score the demo tickets: ${lastError}`);
+  else if (failed) toast(`Demo loaded. ${failed} ticket(s) couldn't be scored.`);
+  else toast('Demo loaded. Queue sorted by urgency score.');
 }
 
 // Pre-fill key from localStorage on load
