@@ -89,6 +89,22 @@ Two people from Uttarakhand, where the Buransh (rhododendron) blooms in the hill
 - **Rounak Bisht**: conceived the three-signal scoring model · [GitHub](https://github.com/RounakBisht) · [LinkedIn](https://www.linkedin.com/in/rounak-bisht-/)
 - **Kartik Manral**: designed and built the dashboard and brand identity · [GitHub](https://github.com/KartikManral) · [LinkedIn](https://www.linkedin.com/in/kartik-manral-b08383249/)
 
+### Who built what
+
+**Rounak Bisht**
+- **Problem discovery:** why support queues fail (urgency is invisible on arrival), the churn window and time lost to manual sorting.
+- **Three-signal scoring model:** base urgency × ARR multiplier × trust inverse, with the multiplier nudging the score rather than overriding it.
+- **Trust buffer and emotion velocity:** recency-weighted CSAT (50 / 30 / 20), maximum priority for new customers, escalating vs de-escalating trends.
+- **Customer segments and churn risk:** champion, loyal, at risk, new and needs-attention segments, combined into a churn-risk flag.
+- **AI prompt and output design:** urgency, sentiment, category, key signals and a draft reply per ticket, via Groq.
+- **Demo data and Freshdesk import:** realistic sample tickets and customer profiles, and the CSV field mapping.
+- **Positioning and launch:** landing page story and copy, the feedback form and the Vercel deploy.
+
+**Kartik Manral**
+- **Brand identity:** the rhododendron logo, colours and typography.
+- **Triage dashboard:** UX and front-end for the priority queue, ticket detail, score breakdown and incident alert.
+- **Landing page:** visual design and the responsive build.
+
 ## License
 
 [MIT](LICENSE): free to use, change and share.
