@@ -87,7 +87,7 @@ For local development, run `vercel dev` in the project folder and open `http://l
 Two people from Uttarakhand, where the Buransh (rhododendron) blooms in the hills every spring.
 
 - **Rounak Bisht**: conceived the three-signal scoring model · [GitHub](https://github.com/RounakBisht) · [LinkedIn](https://www.linkedin.com/in/rounak-bisht-/)
-- **Kartik Manral**: designed and built the dashboard and brand identity · [GitHub](https://github.com/KartikManral) · [LinkedIn](https://www.linkedin.com/in/kartik-manral-b08383249/)
+- **Kartik Manral**: brand identity, triage dashboard and landing page design and build · [GitHub](https://github.com/KartikManral) · [LinkedIn](https://www.linkedin.com/in/kartik-manral-b08383249/)
 
 ### Who built what
 
